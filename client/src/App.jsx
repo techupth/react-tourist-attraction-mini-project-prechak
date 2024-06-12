@@ -1,5 +1,5 @@
 import "./App.css";
-import FeatureTitles from "./components/FeatureTitles";
+import Homepage from "./components/Homepage";
 import Header from "./components/Header";
 // import SearchBox from "./components/SearchBox";
 
@@ -8,7 +8,7 @@ function App() {
     <div className="container mx-auto p-4">
       <Header />
       {/* <SearchBox /> */}
-      <FeatureTitles />
+      <Homepage />
     </div>
   );
 }
