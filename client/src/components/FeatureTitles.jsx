@@ -5,6 +5,7 @@ function FeatureTitles() {
   const [titles, setTitles] = useState([]);
   const [searchText, setSearchText] = useState("");
   // console.log(titles);
+  console.log(searchText);
 
   const getTitles = async () => {
     const response = await axios.get(
@@ -20,21 +21,36 @@ function FeatureTitles() {
 
   return (
     <div className="space-y-8">
-      {titles.map((item) => {
+      <div className="flex justify-center mb-6">
+        <input
+          type="text"
+          className="w-9/12 border-b-2 focus:outline-none"
+          placeholder="หาที่เที่ยวแล้วไปกัน ..."
+          value={searchText}
+          onChange={(e) => {
+            setSearchText(e.target.value);
+          }}
+        />
+      </div>
+      {titles.map((item, index) => {
         return (
-          <div
-            key={item.eid}
-            class="bg-white rounded-lg shadow-lg overflow-hidden flex mb-6 gap-4"
-          >
+          <div key={index} class="bg-white overflow-hidden flex mb-6 gap-4">
             <img
-              class="w-1/3 object-cover "
+              class="w-1/3 object-cover rounded-lg "
               src={item.photos[0]}
               alt="Main Image"
             />
             <div class="w-2/3 p-4">
               <h2 class="text-2xl font-bold mb-2">{item.title}</h2>
-              <p class="text-gray-700 mb-4">{item.description}</p>
-              <a href="#" class="text-blue-500 underline mb-4 inline-block">
+              <p class="text-gray-700 mb-4">
+                {item.description.length > 100
+                  ? item.description.substring(0, 100) + "..."
+                  : item.description}
+              </p>
+              <a
+                href={item.url}
+                class="text-blue-500 underline mb-4 inline-block"
+              >
                 อ่านต่อ
               </a>
               <div class="mt-4 text-sm text-gray-500">
@@ -60,7 +76,7 @@ function FeatureTitles() {
                   <img
                     key={index}
                     src={photo}
-                    className="w-1/4 rounded-lg"
+                    className="w-1/6 rounded-lg"
                     alt={`Thumbnail ${index + 1}`}
                   />
                 ))}
