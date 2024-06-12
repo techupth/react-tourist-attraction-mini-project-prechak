@@ -25,6 +25,11 @@ function Homepage() {
     });
   };
 
+  const handleCopyLink = async (url) => {
+    await navigator.clipboard.writeText(url);
+    alert("Link copied to clipboard!");
+  };
+
   useEffect(() => {
     getTitles();
   }, [searchText]);
@@ -46,7 +51,7 @@ function Homepage() {
         return (
           <div key={index} class="bg-white overflow-hidden flex mb-6 gap-4">
             <img
-              class="w-1/3 object-cover rounded-lg "
+              class="w-1/3 h-[17rem] object-cover rounded-lg "
               src={item.photos[0]}
               alt="Main Image"
             />
@@ -86,20 +91,27 @@ function Homepage() {
                     alt={`Thumbnail ${index + 1}`}
                   />
                 ))}
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  class="size-6 self-end"
+                <a
+                  href="#"
+                  className="self-end"
+                  onClick={() => handleCopyLink(item.url)}
                 >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244"
-                  />
-                </svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="size-6"
+                    style={{ marginLeft: "8rem" }}
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244"
+                    />
+                  </svg>
+                </a>
               </div>
             </div>
           </div>
