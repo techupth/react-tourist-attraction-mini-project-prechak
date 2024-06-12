@@ -4,7 +4,7 @@ import axios from "axios";
 function FeatureTitles() {
   const [titles, setTitles] = useState([]);
   const [searchText, setSearchText] = useState("");
-  console.log(titles);
+  // console.log(titles);
 
   const getTitles = async () => {
     const response = await axios.get(
@@ -32,7 +32,7 @@ function FeatureTitles() {
               alt="Main Image"
             />
             <div class="w-2/3 p-4">
-              <h2 class="text-2xl font-bold mb-2">{item.titles}</h2>
+              <h2 class="text-2xl font-bold mb-2">{item.title}</h2>
               <p class="text-gray-700 mb-4">{item.description}</p>
               <a href="#" class="text-blue-500 underline mb-4 inline-block">
                 อ่านต่อ
