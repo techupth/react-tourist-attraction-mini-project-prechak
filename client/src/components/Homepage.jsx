@@ -5,7 +5,7 @@ function Homepage() {
   const [titles, setTitles] = useState([]);
   const [searchText, setSearchText] = useState("");
   // console.log(titles);
-  console.log(searchText);
+  // console.log(searchText);
 
   const getTitles = async () => {
     const response = await axios.get(
@@ -18,6 +18,7 @@ function Homepage() {
   const handleTagClick = (tag) => {
     setSearchText((prevText) => {
       const tagExists = prevText.split(" ").includes(tag);
+      console.log(tagExists);
       if (tagExists) {
         return prevText;
       }
