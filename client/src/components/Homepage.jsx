@@ -50,7 +50,11 @@ function Homepage() {
       </div>
       {titles.map((item, index) => {
         return (
-          <div key={index} class="bg-white overflow-hidden flex mb-6 gap-4">
+          <div
+            key={index}
+            class="bg-white overflow-hidden flex mb-6 gap-4"
+            style={{ fontFamily: "Kanit, sans-serif" }}
+          >
             <img
               class="w-1/3 h-[17rem] object-cover rounded-lg "
               src={item.photos[0]}
