@@ -10,7 +10,7 @@ Trip Finder is a React application that helps users discover travel destinations
 - **Tag Filtering**: Click on tags to filter trips by specific categories.
 - **View Trip Details**: See detailed information about each trip, including a short description and multiple photos.
 - **Copy Trip URL**: Easily copy the trip URL to your clipboard for sharing.
-- **Responsive**: Responsive for mobile device.
+- **Responsive Design**: Optimized for mobile devices.
   
   ![TOURIST](client/src/img/tiewnaidee-responsive-screenshot.png)
 
