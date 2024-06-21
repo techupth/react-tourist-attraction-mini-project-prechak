@@ -8,11 +8,15 @@ function Homepage() {
   // console.log(searchText);
 
   const getTitles = async () => {
-    const response = await axios.get(
-      `http://localhost:4001/trips?keywords=${searchText}`
-    );
-    // console.log(response.data.data);
-    setTitles(response.data.data);
+    try {
+      const response = await axios.get(
+        `http://localhost:4001/trips?keywords=${searchText}`
+      );
+      // console.log(response.data.data);
+      setTitles(response.data.data);
+    } catch (erroe) {
+      console.log("error");
+    }
   };
 
   const handleTagClick = (tag) => {
@@ -62,7 +66,9 @@ function Homepage() {
             />
             <div class="w-2/3 p-4">
               <h2 class="text-2xl font-bold mb-2">
-                <a href={item.url}>{item.title}</a>
+                <a href={item.url} target="_blank">
+                  {item.title}
+                </a>
               </h2>
 
               <p class="text-gray-700">
@@ -70,7 +76,11 @@ function Homepage() {
                   ? item.description.substring(0, 100) + "..."
                   : item.description}
               </p>
-              <a href={item.url} class="text-blue-500 underline  inline-block">
+              <a
+                href={item.url}
+                target="_blank"
+                class="text-blue-500 underline  inline-block"
+              >
                 อ่านต่อ
               </a>
 
